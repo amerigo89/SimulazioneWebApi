@@ -13,6 +13,7 @@ namespace SimulazioneWebApi.Model.DTOs
         public DateTime DataNascita { get; set; }
         public int? IdDipartimento { get; set; }
         public DateTime DataAssunzione { get; set; }
+        public string NomeDipartimento { get; set; }
 
         public ImpiegatoDTO (Impiegati imp)
         {
@@ -22,6 +23,8 @@ namespace SimulazioneWebApi.Model.DTOs
             DataNascita = imp.DataNascita;
             IdDipartimento = imp.IdDipartimento;
             DataAssunzione = imp.DataAssunzione;
+
+            NomeDipartimento = "";
         }
     }
 }

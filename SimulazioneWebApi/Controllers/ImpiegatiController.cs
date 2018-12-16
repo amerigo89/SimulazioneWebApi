@@ -31,7 +31,12 @@ namespace SimulazioneWebApi.Controllers
             List<ImpiegatoDTO> impDTO = new List<ImpiegatoDTO>();
             foreach(var imp in impiegati)
             {
-                impDTO.Add(new ImpiegatoDTO(imp));
+                ImpiegatoDTO newImp = new ImpiegatoDTO(imp);
+                if(imp.IdDipartimento > 0)
+                {
+                    newImp.NomeDipartimento = _context.Dipartimenti.FirstOrDefault(d => d.Id == imp.IdDipartimento).Nome;
+                }       
+                impDTO.Add(newImp);
             }
             return impDTO;
         }
